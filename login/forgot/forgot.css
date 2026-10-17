@@ -1,0 +1,211 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #0a0b10;
+    color: white;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* --- SISI KIRI (HERO) --- */
+.hero-section {
+    flex: 1.2;
+    /* JALUR AKTIF: Mengarah ke login/img/bg.png */
+    background: url('../img/bg.png') no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 500px;
+}
+
+.badge {
+    background: rgba(255, 0, 0, 0.15);
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    color: #ff3333;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero-content span {
+    color: #e50914;
+}
+
+.hero-content p {
+    color: #cccccc;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* --- SISI KANAN (FORGOT BOX) --- */
+.forgot-section {
+    flex: 0.8;
+    background-color: #0d0e14;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.forgot-box {
+    width: 100%;
+    max-width: 400px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #888;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 30px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #fff;
+}
+
+h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 8px;
+    color: #bbb;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #161821;
+    border: 1px solid #2a2d3a;
+    border-radius: 6px;
+    color: white;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+/* Membuat border merah saat input sedang diketik */
+.input-group input:focus {
+    border-color: #e50914;
+}
+
+/* Tombol Merah (Primary) */
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #b2070f;
+}
+
+/* Tombol Abu/Biru Gelap (Secondary untuk Tampilan Sukses) */
+.btn-secondary {
+    display: inline-block;
+    width: 100%;
+    padding: 15px;
+    background-color: #242938; 
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #31384c;
+}
+
+/* --- KELAS TAMBAHAN UNTUK TAMPILAN SUKSES --- */
+.hidden {
+    display: none !important;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-white {
+    color: #ffffff;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(0, 200, 83, 0.1); 
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 20px auto;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-section { display: none; }
+    .forgot-section { flex: 1; }
+}

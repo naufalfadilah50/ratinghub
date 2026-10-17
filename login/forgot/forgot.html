@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RatingHub - Lupa Kata Sandi</title>
+    <link rel="stylesheet" href="forgot.css?v=<?php echo time(); ?>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <div class="badge">Selamat Datang di RatingHub</div>
+                <h1>Ulas Film <br><span>Terbaikmu</span></h1>
+                <p>Bergabunglah dengan komunitas pencinta film. Temukan, simpan, dan berikan penilaian pada film-film favoritmu dari seluruh dunia.</p>
+            </div>
+        </div>
+
+        <div class="forgot-section">
+            <div class="forgot-box">
+                <a href="../login.html" class="back-link">&larr; Kembali ke Masuk</a>
+                
+                <div id="form-container">
+                    <h2>Lupa Kata Sandi?</h2>
+                    <p class="subtitle">Masukkan alamat email Anda yang terdaftar, dan kami akan mengirimkan tautan untuk mengatur ulang kata sandi.</p>
+
+                    <form id="forgotForm">
+                        <div class="input-group">
+                            <label for="email">Email Terdaftar</label>
+                            <input type="email" id="email" placeholder="nama@email.com" required>
+                        </div>
+
+                        <button type="submit" class="btn-primary">Kirim Tautan Reset</button>
+                    </form>
+                </div>
+
+                <div id="success-container" class="hidden text-center">
+                    <div class="success-icon">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#00c853" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <h2>Tautan Terkirim!</h2>
+                    <p class="subtitle">Kami telah mengirimkan instruksi untuk mengatur ulang kata sandi ke email <strong id="display-email" class="text-white"></strong>. Silakan periksa kotak masuk atau folder spam Anda.</p>
+                    
+                    <a href="../login.html" class="btn-secondary">Kembali ke Halaman Masuk</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="forgot.js"></script>
+</body>
+</html>

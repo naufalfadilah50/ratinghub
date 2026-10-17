@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RatingHub - Daftar Akun</title>
+    
+    <!-- Font Inter dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS LANGSUNG DIMASUKKAN KE SINI AGAR TIDAK HILANG -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: #0a0b10;
+            color: white;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* --- SISI KIRI (HERO) --- */
+        .hero-section {
+            flex: 1.2;
+            /* Pastikan gambar bg.png ada, jika tidak, background akan hitam elegan */
+            background: url('../img/bg.png') no-repeat center center/cover;
+            background-color: #111; 
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.5));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+        }
+
+        .badge {
+            background: rgba(255, 0, 0, 0.15);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            color: #ff3333;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content span {
+            color: #e50914;
+        }
+
+        .hero-content p {
+            color: #cccccc;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        /* --- SISI KANAN (FORM REGISTER) --- */
+        .login-section {
+            flex: 0.8;
+            background-color: #0d0e14;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .login-box h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #bbb;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px 16px;
+            background-color: #161821;
+            border: 1px solid #2a2d3a;
+            border-radius: 6px;
+            color: white;
+            outline: none;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-group input::placeholder {
+            color: #555;
+        }
+
+        .input-group input:focus {
+            border-color: #e50914;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 16px;
+            background-color: #e50914;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 15px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-login:hover {
+            background-color: #b2070f;
+        }
+
+        .options {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #bbb;
+        }
+
+        .checkbox-container input {
+            margin-right: 8px;
+        }
+
+        .footer-text {
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            margin-top: 20px;
+        }
+
+        .footer-text a {
+            color: #e50914;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        @media (max-width: 900px) {
+            .hero-section { display: none; }
+            .login-section { flex: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Bagian Kiri (Gambar & Teks) -->
+        <div class="hero-section">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <div class="badge">Selamat Datang di RatingHub</div>
+                <h1>Ulas Film <br><span>Terbaikmu</span></h1>
+                <p>Bergabunglah dengan komunitas pencinta film. Temukan, simpan, dan berikan penilaian pada film-film favoritmu dari seluruh dunia.</p>
+            </div>
+        </div>
+
+        <!-- Bagian Kanan (Formulir Pendaftaran) -->
+        <div class="login-section">
+            <div class="login-box">
+                <h2>RatingHub</h2>
+                <p class="subtitle">Daftar untuk mulai berbagi ulasan film Anda.</p>
+
+                <!-- FORM TERHUBUNG KE XAMPP (PHP) -->
+                <form id="registerForm" action="proses_register.php" method="POST">
+                    
+                    <div class="input-group">
+                        <label for="fullname">Nama Lengkap</label>
+                        <input type="text" id="fullname" name="nama_lengkap" placeholder="Nama Anda" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="nama@email.com" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Kata Sandi</label>
+                        <input type="password" id="password" name="password" placeholder="********" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirm-password">Konfirmasi Kata Sandi</label>
+                        <input type="password" id="confirm-password" name="confirm_password" placeholder="********" required>
+                    </div>
+
+                    <div class="options">
+                        <label class="checkbox-container">
+                            <input type="checkbox" required> Saya setuju dengan Syarat & Ketentuan.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-login">Daftar</button>
+                </form>
+
+                <p class="footer-text">Sudah punya akun? <a href="../login.html">Masuk sekarang</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script JS dimasukkan langsung (Internal JS) untuk menghindari Cache Browser -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('registerForm');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+
+            registerForm.addEventListener('submit', function(event) {
+                const passwordValue = passwordInput.value;
+                const confirmPasswordValue = confirmPasswordInput.value;
+
+                // Validasi 1: Cek kecocokan password
+                if (passwordValue !== confirmPasswordValue) {
+                    event.preventDefault(); // Hentikan pengiriman ke PHP
+                    alert('Kata sandi tidak cocok. Silakan periksa kembali!');
+                    confirmPasswordInput.focus();
+                    return;
+                }
+
+                // Validasi 2: Cek panjang minimal password
+                if (passwordValue.length < 8) {
+                    event.preventDefault(); // Hentikan pengiriman ke PHP
+                    alert('Kata sandi harus minimal 8 karakter!');
+                    passwordInput.focus();
+                    return;
+                }
+
+                // JIKA SEMUA BENAR, biarkan form berjalan secara alami ke proses_register.php
+                // Kita tidak memblokir form (event.preventDefault) di sini agar PHP bisa jalan.
+            });
+        });
+    </script>
+</body>
+</html>

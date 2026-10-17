@@ -1,0 +1,354 @@
+
+.detail-top-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Banner Film */
+.movie-banner {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.movie-poster {
+    width: 250px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.badge-genre {
+    background-color: var(--primary-red);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.movie-info-header h1 {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.meta-stats {
+    display: flex;
+    gap: 20px;
+    color: var(--text-muted);
+    font-size: 14px;
+    align-items: center;
+}
+
+.star-score {
+    color: var(--text-light);
+    font-weight: 700;
+}
+.star-score i { color: var(--star-color); margin-right: 5px; }
+.star-score small { color: var(--text-muted); font-weight: normal; }
+
+/* Grid Bawah */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 50px;
+}
+
+/* Section Umum */
+.section-block {
+    margin-bottom: 40px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.desc-text {
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* Kru Box */
+.crew-box {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    padding: 20px;
+    gap: 40px;
+}
+
+.crew-label {
+    display: block;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.crew-name {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.cast-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.cast-tag {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+/* ================= KOTAK ULASAN & BINTANG INTERAKTIF ================= */
+.review-box {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
+}
+
+.rating-input-area {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background: #0d1017;
+    padding: 15px 20px;
+    border-radius: 12px;
+}
+
+/* Efek Bintang (CSS Magic) */
+.star-rating {
+    display: flex;
+    flex-direction: row-reverse; /* Dibalik agar hover CSS bekerja */
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.star-rating input { display: none; }
+
+.star-rating label {
+    color: #2a303c; /* Warna abu gelap saat kosong */
+    font-size: 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Hover effect: saat kursor di bintang, bintang itu & sebelumnya menyala membesar */
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: var(--star-color);
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.5));
+}
+
+.rating-hint {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+/* Textarea & Tombol Kirim */
+.comment-area {
+    background: #0d1017;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-area textarea {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 14px;
+    resize: none;
+    height: 60px;
+    outline: none;
+    margin-bottom: 15px;
+}
+
+.btn-kirim {
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Saat mengetik form, tombol kirim bisa di-highlight (opsional, hover) */
+.btn-kirim:hover {
+    background: var(--text-light);
+    color: var(--bg-main);
+}
+
+/* ================= ULASAN KOMUNITAS ================= */
+.community-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.community-header h3 { border: none; padding: 0; margin: 0; }
+
+.title-with-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.review-count {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.custom-select {
+    background: #0d1017;
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.review-card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.review-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-meta strong {
+    font-size: 14px;
+    color: var(--text-light);
+}
+
+.user-meta small {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.review-stars-display {
+    margin-left: auto;
+    color: var(--star-color);
+    font-size: 12px;
+}
+
+.review-text {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ================= INFORMASI FILM (KOLOM KANAN) ================= */
+.info-card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: sticky;
+    top: 40px;
+}
+
+.info-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    padding-bottom: 15px;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-item span {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.info-item strong {
+    font-size: 14px;
+    color: var(--text-light);
+}
