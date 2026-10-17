@@ -1,27 +1,34 @@
 <?php
 session_start();
-// Gunakan ../ untuk keluar dari folder login dan mencari koneksi.php di folder utama
-include "../koneksi.php"; 
 
-$email = $_POST['email'];
-$password = $_POST['password'];
+// 1. Mencegah akses langsung via URL (mencegah HTTP ERROR 405)
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header("Location: login.html");
+    exit();
+}
 
-// Cek apakah koneksi berhasil (opsional untuk debugging)
+// 2. Keluar satu tingkat folder dari 'login' untuk mengambil 'koneksi.php' utama
+include "../koneksi.php";
+
+// 3. Cek koneksi ke database
 if (!$koneksi) {
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 
-// 1. Ambil data user berdasarkan email
-$query = mysqli_query($koneksi, "SELECT * FROM users WHERE email='$email'");
-$data = mysqli_fetch_assoc($query);
+// 4. Ambil data dari form login
+$email = $_POST['email'];
+$password = $_POST['password'];
 
-// 2. Cek apakah user ditemukan
+// 5. Ambil data user berdasarkan email
+$query = mysqli_query($koneksi, "SELECT * FROM users WHERE email='$email'");
+
 if (mysqli_num_rows($query) > 0) {
+    $data = mysqli_fetch_assoc($query);
     
-    // 3. Verifikasi password hash (menggunakan data dari kolom password di DB)
+    // 6. Verifikasi password hash
     if (password_verify($password, $data['password'])) {
         
-        // Simpan nama_lengkap ke session agar muncul di beranda
+        // Simpan data ke session
         $_SESSION['nama'] = $data['nama_lengkap']; 
         $_SESSION['status'] = "login";
 
